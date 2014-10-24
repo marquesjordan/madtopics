@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'pages/home'
+
   get 'questions/' => 'questions#index', as: :questions
   get 'questions/new' => 'questions#new', as: :new_question
   get 'questions/:id' => 'questions#show', as: :question
