@@ -1,2 +1,6 @@
 <h1><%= @question.topic %></h1>
 <p><%= @question.enigma %></p> 
+
+<%= link_to "Edit", edit_question_path(@question) %>
+<%= link_to "Delete", delete_question_path(@question) %><br/><br/>
+<%= link_to "Back to Question List", questions_path %>

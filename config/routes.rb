@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'questions/new' => 'questions#new', as: :new_question
   get 'questions/:id' => 'questions#show', as: :question
   post 'questions/' => 'questions#create'
+  get 'quesitons/:id/edit' => 'questions#edit', as: :edit_question
+  patch 'questions/:id' => 'questions#update', as: :update_question
+  delete 'questions/:id' => 'questions#destroy', as: :delete_question
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

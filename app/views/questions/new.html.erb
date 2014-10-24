@@ -2,7 +2,7 @@
 
 <%= form_for @question do |q| %>
 	Topic: <%= q.text_field :topic %><br/>
-	Question: <%= q.text_field :enigma %><br/>
+	Question: <%= q.text_area :enigma %><br/>
 
 	<%= q.submit "Add Question" %>
 

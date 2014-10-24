@@ -3,6 +3,9 @@
 	
 	<div><h2><%= q.topic %></h2></div>
 	<p><%= q.enigma %><p>
+	<%= link_to "More Details", question_path(q) %>
 	
 
 <% end %>
+<br/><br/>
+<%= link_to "Add New Question", new_question_path %>
