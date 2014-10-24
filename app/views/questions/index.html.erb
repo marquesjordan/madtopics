@@ -1,11 +1,27 @@
-<h1>List of Questions</h1>
-<% @questions.each do |q| %>
+<div> <%= render 'layouts/menu' %></div>
+<div class="container">
 	
-	<div><h2><%= q.topic %></h2></div>
-	<p><%= q.enigma %><p>
-	<%= link_to "More Details", question_path(q) %>
-	
+	<div class="row">
+		<div class="col-md-2"></div>
+			<div class="col-md-6">
+				<h1 id="list_title">MAD Topics</h1>
+				<% @questions.each do |q| %>
+					<div class="panel panel-primary">
+			  			<div class="panel-heading">
+							<h2 class="panel-title"><%= q.topic %></h2>
+						</div>
+						<div class="panel-body">
+							<p><%= q.enigma %></p>
+						
+							<%= link_to "More Details", question_path(q) %>
+						</div>
+					</div>	
 
-<% end %>
-<br/><br/>
-<%= link_to "Add New Question", new_question_path %>
+				<% end %>
+				<br/><br/>
+				<%= link_to "Add New Question", new_question_path %>
+			</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'pages/home'
+  root 'pages#home'
 
   get 'questions/' => 'questions#index', as: :questions
   get 'questions/new' => 'questions#new', as: :new_question
