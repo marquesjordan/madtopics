@@ -1,0 +1,11 @@
+<h1>Create New Question</h1>
+
+<%= form_for @question do |q| %>
+	Topic: <%= q.text_field :topic %><br/>
+	Question: <%= q.text_field :enigma %><br/>
+
+	<%= q.submit "Add Question" %>
+
+<% end %>
+
+<%= link_to "Back to Question List", questions_path %>
