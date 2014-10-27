@@ -1,7 +1,8 @@
 class Answer
   include Mongoid::Document
-  field :question_id, type: String
   field :description, type: String
 
-  # belongs_to :question
+  belongs_to :question
+  has_many :user_answers
+  #embedded_in :question, :inverse_of => :answers
 end

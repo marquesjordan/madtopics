@@ -1,11 +1,20 @@
-<h1>Create New Question</h1>
+<div class="container">
+	<h1>Create New Question</h1>
 
-<%= form_for @question do |q| %>
-	Topic: <%= q.text_field :topic %><br/>
-	Question: <%= q.text_area :enigma %><br/>
-
+	<%= form_for @question do |q| %>
+	
+		Topic: <%= q.text_field :topic %><br/><br/>
+		Question: <%= q.text_area :enigma %><br/><br/>
+	
+		<%= q.fields_for :answers do |builder| %>
+			<p>	
+				Answer: <%= builder.text_field :description %><br/>
+			</p>
+		<% end %>
+		
 	<%= q.submit "Add Question" %>
 
-<% end %>
+	<% end %>
 
-<%= link_to "Back to Question List", questions_path %>
+	<%= link_to "Back to Question List", questions_path %>
+</div>

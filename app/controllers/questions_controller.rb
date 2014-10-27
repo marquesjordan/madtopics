@@ -2,24 +2,28 @@ class QuestionsController < ApplicationController
 
 	def index
 		@questions = Question.all
+
+	end
+
+	def show
+		@question = Question.find(params[:id])
 	end
 
 	def new
 		@question = Question.new
+		2.times { @question.answers.build }
 	end
 
 	def create
-		@question = Question.new(params.require(:question).permit(:topic,:enigma))
+		@question = Question.new(params.require(:question).permit(:topic,:enigma,:answers_attributes => [:description]))
 		if @question.save
+			# @answer = @question.answers.create(params.require(:answer).permit(:description))
 			redirect_to questions_path
 		else
 			render "new"
 		end
 	end
 
-	def show
-		@question = Question.find(params[:id])
-	end
 
 	def edit
 		@question = Question.find(params[:id])
@@ -38,7 +42,7 @@ class QuestionsController < ApplicationController
 	def destroy
 		@question = Question.find(params[:id])
 		@question.destroy
-		redirect_to question_path
+		redirect_to questions_path
 	end
 
 end

@@ -1,6 +1,15 @@
-<h1><%= @question.topic %></h1>
-<p><%= @question.enigma %></p> 
 
-<%= link_to "Edit", edit_question_path(@question) %>
-<%= link_to "Delete", delete_question_path(@question) %><br/><br/>
-<%= link_to "Back to Question List", questions_path %>
+<div class="container">
+	<h1><%= @question.topic %></h1>
+	<p><%= @question.enigma %></p>
+
+	<ol>
+	<% for answer in @question.answers %>
+		<li><%= answer.description %> </li>
+	<% end %>
+	</ol>
+
+	<%= link_to "Edit", edit_question_path(@question) %>
+	<%= link_to "Delete", :question, method: :delete, data: {confirm: 'Are you sure you want to delete it?'} %><br/><br/>
+	<%= link_to "Back to Question List", questions_path %>
+</div>
