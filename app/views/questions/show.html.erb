@@ -3,11 +3,11 @@
 	<h1><%= @question.topic %></h1>
 	<p><%= @question.enigma %></p>
 
-	<ol>
+	
 	<% for answer in @question.answers %>
-		<li><%= answer.description %> </li>
+		<div class="box"><%= answer.description %></div>
 	<% end %>
-	</ol>
+	
 
 	<%= link_to "Edit", edit_question_path(@question) %>
 	<%= link_to "Delete", :question, method: :delete, data: {confirm: 'Are you sure you want to delete it?'} %><br/><br/>

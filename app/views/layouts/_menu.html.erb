@@ -10,18 +10,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <h3><%= link_to "MAD Topics", questions_path %><h3>
+          <a class="navbar-brand" href="#">MAD Topics</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
           <li class="menulink">
-            <h3 class="navbar-link"><%= link_to "Topics", questions_path %></h3>
-          </li>
-          <li class="menulink">
-            <h3 class="navbar-link"><%= link_to "About", questions_path %></h3>
-          </li>
-          <li class="menulink">
-            <h3 class="navbar-link"><%= link_to "Share", questions_path %></h3>
+              <% if current_user %>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <%= current_user.name %><span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Profile</a></li>
+                    <li><%= link_to("Logout", sessions_path, method: :delete) %></li>
+                  </ul>
+              <% else %>
+                  <%= link_to("Login", new_sessions_path) %>
+              <% end %>
           </li>
         </ul>
       </div>

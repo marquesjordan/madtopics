@@ -1,5 +1,7 @@
 class User
   include Mongoid::Document
+  include ActiveModel::SecurePassword
+  has_secure_password
   field :name, type: String
   field :username, type: String
   field :email, type: String

@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
+  get 'user_answers/create'
 
+  get 'user_answers/new'
+
+  get 'user_answers/destroy'
+
+  get 'sessions/create'
+
+  get 'sessions/new'
+
+  get 'sessions/destroy'
+
+  resources :users, except: [:destroy]
+  resource :sessions, only: [:create, :new, :destroy]
 
   root 'pages#home'
 
