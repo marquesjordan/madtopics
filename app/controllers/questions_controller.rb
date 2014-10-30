@@ -1,11 +1,14 @@
 class QuestionsController < ApplicationController
 
+	# before_action :confirm_logged_in
+	
 	def index
 		@questions = Question.all
 	end
 
 	def show
 		@question = Question.find(params[:id])
+		@user = current_user
 	end
 
 	def new
@@ -14,6 +17,7 @@ class QuestionsController < ApplicationController
 	end
 
 	def create
+		raise params.inspect
 		@question = Question.new(params.require(:question).permit(:topic,:enigma,:answers_attributes => [:description]))
 		if @question.save
 			# @answer = @question.answers.create(params.require(:answer).permit(:description))

@@ -1,5 +1,7 @@
 class AnswersController < ApplicationController
 
+	# before_action :confirm_logged_in
+
 	def new
 		# @question = Question.find(params[:question_id])
 		# @answer = @question.answer.build

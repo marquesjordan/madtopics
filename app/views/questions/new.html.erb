@@ -1,18 +1,18 @@
 <div class="container">
 	<h1>Create New Question</h1>
 
-	<%= form_for @question do |q| %>
+	<%= form_for @question do |f| %>
 	
-		Topic: <%= q.text_field :topic %><br/><br/>
-		Question: <%= q.text_area :enigma %><br/><br/>
+		Topic: <%= f.text_field :topic %><br/><br/>
+		Question: <%= f.text_area :enigma %><br/><br/>
 	
-		<%= q.fields_for :answers do |builder| %>
+		<%= f.fields_for :answers do |builder| %>
 			<p>	
 				Answer: <%= builder.text_field :description %><br/>
 			</p>
 		<% end %>
 		
-	<%= q.submit "Add Question" %>
+	<%= f.submit "Add Question" %>
 
 	<% end %>
 

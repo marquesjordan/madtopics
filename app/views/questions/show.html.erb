@@ -5,9 +5,14 @@
 
 	
 	<% for answer in @question.answers %>
-		<div class="box"><%= answer.description %></div>
+		<div class="box"><%= answer.description %>
+
+		</div>
 	<% end %>
-	
+	<%= form_for @user do |f| %>
+		<%= f.collection_check_boxes :answer_ids, @question.answers, :id, :description %>
+		<%= f.submit "Answer" %>
+	<% end %>
 
 	<%= link_to "Edit", edit_question_path(@question) %>
 	<%= link_to "Delete", :question, method: :delete, data: {confirm: 'Are you sure you want to delete it?'} %><br/><br/>

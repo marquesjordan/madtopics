@@ -1,25 +1,35 @@
-<%= link_to("Login", "#my-modal", class: "btn btn-primary", "data-toggle" => "modal" ) %>
+<%= link_to("Login", "#myModal", class: "btn btn-primary", "data-toggle" => "modal" ) %>
       <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#">Login</button> -->
-<button type="button" class="btn btn-danger">Sign Up</button>
+<%= link_to("Sign", "#signModal", class: "btn btn-danger", "data-toggle" => "modal" ) %>
 
-<div class="modal hide fade" id="my-modal" title="My modal">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-
-    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
-    <h3 id="myModalLabel">Log In</h3>
-  </div>
-  <div class="modal-body">
-   
-    <div class="container">
-  
-      <button aria-hidden="true" class="btn btn-primary" data-dismiss="modal">Close</button>
-
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Welcome Back - Please Login</h4>
+      </div>
+      <div class="modal-body">
+          <%= render new_sessions_path %>
+      </div>
     </div>
-
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    <%= link_to("Sign Up", new_user_path) %>
   </div>
 </div>
+
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="signModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="signModalLabel">Welcome Back - Please Login</h4>
+      </div>
+      <div class="modal-body">
+          <%= render new_user_path %>
+      </div>
+
+    </div>
+  </div>
+</div>
+

@@ -24,7 +24,7 @@
                     <li><%= link_to("Logout", sessions_path, method: :delete) %></li>
                   </ul>
               <% else %>
-                  <%= link_to("Login", new_sessions_path) %>
+                  <%= link_to("Login", "#myModal", "data-toggle" => "modal" ) %>
               <% end %>
           </li>
         </ul>
