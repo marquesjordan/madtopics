@@ -6,12 +6,15 @@ Rails.application.routes.draw do
 
   get 'topics/edit'
 
+  get 'user_answers/index'
+  
+  post 'user_answers/create'
 
-  get 'user_answers/create'
-
-  get 'user_answers/new'
+  get 'user_answers/new' => 'user_answers#new', as: :user_answers
 
   get 'user_answers/destroy'
+
+  get 'user_answers/answer_ids'
 
   get 'sessions/create'
 

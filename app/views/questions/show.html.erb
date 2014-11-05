@@ -1,16 +1,18 @@
 
 <div class="container">
-	<h1><%= @question.topic.name %></h1>
+	<h1><%= @question.topic.name.upcase %></h1>
 	<p><%= @question.enigma %></p>
+	<p><%= @user._id %></p> 
 
 	
 	<% for answer in @question.answers %>
-		<div class="box"><%= answer.description %>
+		<!-- <div class="box"><%= answer.description %>
 
-		</div>
+		</div> -->
 	<% end %>
 	<%= form_for @user do |f| %>
-		<%= f.collection_check_boxes :answer_ids, @question.answers, :id, :description %>
+		<%= f.collection_radio_buttons(:answer_ids, @question.answers, :id, :description) %><br>
+		
 		<%= f.submit "Answer" %>
 	<% end %>
 

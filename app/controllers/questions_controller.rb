@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
 	def show
 		@question = Question.find(params[:id])
 		@user = current_user
+
 	end
 
 	def new
@@ -22,7 +23,10 @@ class QuestionsController < ApplicationController
 
 	def create
 		# raise params.inspect
-		@question = Question.new(params.require(:question).permit(:enigma, :topic_id, :answers_attributes => [:description]))
+		@user = current_user
+		
+		@question = Question.new(params.require(:question).permit(:enigma, :user_id ,:topic_id, :answers_attributes => [:description]))
+		@question.user_id = @user._id
 		if @question.topic_id == nil
   			flash[:notice] = "You must select a topic catagory"
 			render 'new'
@@ -30,6 +34,7 @@ class QuestionsController < ApplicationController
 			flash[:notice] = "You must enter a question"
 			render 'new'
 		elsif @question.save
+			# @question.user_question.create(question_id: :id, user_id: :current_user)
 			# @answer = @question.answers.create(params.require(:answer).permit(:description))
 			redirect_to questions_path
 		else

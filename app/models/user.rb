@@ -25,12 +25,13 @@ class User
         self.user_answers.create(answer_id: a_id)
       end
     end
-    my_ua.each do |r|
-      UserAnswer.find_by(user_id: self.id, answer_id: r).destroy
-    end
+    # my_ua.each do |r|
+    #   UserAnswer.find_by(user_id: self.id, answer_id: r).destroy
+    # end
   end
 
   def answers
   	Answer.find(answer_ids)
   end
+
 end

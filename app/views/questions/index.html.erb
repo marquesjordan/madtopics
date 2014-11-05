@@ -10,22 +10,17 @@
 			  			<div class="panel-heading">
 							<h2 class="panel-title">
 								<%= q.topic.name %>
-								<%= @topics.find(q.topic_id.to_s).name %>
 							</h2>
 						</div>
 						<div class="panel-body">
 							<p><%= q.enigma %></p>
 						</div>
 						<div class="panel-footer">
-							<ol>
-								<% for answer in q.answers %>
-									<li><%= answer.description %></li>
-								<% end %>
-								<%= link_to "More Details", question_path(q) %>
-							</ol>
+							<%= link_to "Answer Question", question_path(q) %>
 						</div>
 					</div>
 				<% end %>
+
 				<br/><br/>
 				<%= link_to "Add New Question", new_question_path %>
 			</div>

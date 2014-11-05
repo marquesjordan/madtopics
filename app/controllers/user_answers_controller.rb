@@ -10,6 +10,11 @@ class UserAnswersController < ApplicationController
 
   def destroy
   end
+
+  def answer_ids
+  	self.user_answers.map(&:answer_id)
+  end
+
 end
 
 

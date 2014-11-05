@@ -8,4 +8,5 @@ class Question
   belongs_to :user
   # embeds_many :answers
   accepts_nested_attributes_for :answers
+  
 end
