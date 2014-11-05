@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  get 'topics/index'
+
+  get 'topics/new'
+
+  get 'topics/edit'
+
+
   get 'user_answers/create'
 
   get 'user_answers/new'
@@ -20,7 +28,7 @@ Rails.application.routes.draw do
   get 'questions/new' => 'questions#new', as: :new_question
   get 'questions/:id' => 'questions#show', as: :question
   post 'questions/' => 'questions#create'
-  get 'quesitons/:id/edit' => 'questions#edit', as: :edit_question
+  get 'questions/:id/edit' => 'questions#edit', as: :edit_question
   patch 'questions/:id' => 'questions#update', as: :update_question
   delete 'questions/:id' => 'questions#destroy', as: :delete_question
 

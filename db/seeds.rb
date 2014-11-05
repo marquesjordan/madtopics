@@ -6,4 +6,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-questions = Question.create([{topic: 'Lakers', enigma: "Is Kobe Bryant the best player ever?"}, {topic: 'General Assembly', enigma: "Will I get a high paying job after I graduate?"}])
+topics = Topic.create(
+		[ 
+			{name: 'relationships'},
+			{name: 'religion'},
+			{name: 'politics'},
+			{name: 'sex'},
+			{name: 'race'},
+			{name: 'homosexulaity'},
+			{name: 'life'},
+			{name: 'death'},
+			{name: 'school'},
+			{name: 'college'},
+			{name: 'women'},
+			{name: 'men'},
+			{name: 'marajuana'},
+			{name: 'liqour'},
+			{name: 'health'},
+			{name: 'technology'},
+			{name: 'travel'},
+			{name: 'food'}
+		]
+	)

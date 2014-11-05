@@ -8,7 +8,10 @@
 				<% @questions.each do |q| %>
 					<div class="panel panel-primary">
 			  			<div class="panel-heading">
-							<h2 class="panel-title"><%= q.topic %></h2>
+							<h2 class="panel-title">
+								<%= q.topic.name %>
+								<%= @topics.find(q.topic_id.to_s).name %>
+							</h2>
 						</div>
 						<div class="panel-body">
 							<p><%= q.enigma %></p>
@@ -23,7 +26,6 @@
 						</div>
 					</div>
 				<% end %>
-
 				<br/><br/>
 				<%= link_to "Add New Question", new_question_path %>
 			</div>

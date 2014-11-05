@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
   	@current_user ||= User.where(id: session[:user_id]).first
   end
 
+  def find_topic(t_id)
+    Topic.find(t_id)  
+  end
+
+
   private
 
   # def confirm_logged_in

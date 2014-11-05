@@ -11,3 +11,5 @@ class UserAnswersController < ApplicationController
   def destroy
   end
 end
+
+

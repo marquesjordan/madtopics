@@ -1,6 +1,6 @@
-class UserAnswer
+class UserQuestion
   include Mongoid::Document
-  belongs_to :user
-  belongs_to :answer
-end
 
+  belongs_to :user
+  belongs_to :question
+end

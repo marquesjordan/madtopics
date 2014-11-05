@@ -2,10 +2,13 @@
 	<h1>Create New Question</h1>
 
 	<%= form_for @question do |f| %>
-	
-		Topic: <%= f.text_field :topic %><br/><br/>
+		<div class="field">
+			<%= collection_select(:question, :topic_id, Topic.all, :id, :name, prompt: true, :required => true) %>*
+		</div>
+		
+		<br>
 		Question: <%= f.text_area :enigma %><br/><br/>
-	
+		
 		<%= f.fields_for :answers do |builder| %>
 			<p>	
 				Answer: <%= builder.text_field :description %><br/>
