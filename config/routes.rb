@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get 'user_answers/answer_ids'
 
+  post 'user_answers/' => 'user_answers#create'
+
   get 'sessions/create'
 
   get 'sessions/new'

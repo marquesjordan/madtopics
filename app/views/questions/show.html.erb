@@ -2,13 +2,15 @@
 <div class="container">
 	<h1><%= @question.topic.name.upcase %></h1>
 	<p><%= @question.enigma %></p>
-	<p><%= @user._id %></p> 
+	<p>Created by: <%= @user.email %></p> 
 
 	
 	<% for answer in @question.answers %>
-		<!-- <div class="box"><%= answer.description %>
+		<%= button_to answer.description, { controller: "user_answers", action: "create", :user => current_user, :answer => answer} %>
 
-		</div> -->
+		<%= link_to answer.description, user_answers_path(:answer_id => answer, :user_id => current_user) %>
+
+		
 	<% end %>
 	<%= form_for @user do |f| %>
 		<%= f.collection_radio_buttons(:answer_ids, @question.answers, :id, :description) %><br>
