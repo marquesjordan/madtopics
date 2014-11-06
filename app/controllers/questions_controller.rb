@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
 		# raise params.inspect
 		@user = current_user
 		
-		@question = Question.new(params.require(:question).permit(:enigma, :user_id ,:topic_id, :answers_attributes => [:description]))
+		@question = Question.new(params.require(:question).permit(:enigma, :votes, :user_id ,:topic_id, :answers_attributes => [:description]))
 		@question.user_id = @user._id
 		if @question.topic_id == nil
   			flash[:notice] = "You must select a topic catagory"
@@ -48,7 +48,7 @@ class QuestionsController < ApplicationController
 
 	def update
 		@question = Question.find(params[:id])
-		if @question.update_attributes(params.require(:question).permit(:enigma))
+		if @question.update_attributes(params.require(:question).permit(:enigma, :votes))
 			redirect_to questions_path
 		else
 			render "edit"

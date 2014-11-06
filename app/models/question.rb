@@ -1,6 +1,8 @@
 class Question
   include Mongoid::Document
+  include Mongoid::Timestamps
   field :enigma, type: String
+  field :votes, type: Integer, default: 0
 
 
   has_many :answers, :dependent => :destroy, :autosave => true 
