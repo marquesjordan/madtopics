@@ -3,8 +3,6 @@
 
 	<%= form_for @question do |f| %>
 
-		<%= hidden_field_tag :user_id, @user %>
-
 		<div class="field">
 			<%= collection_select(:question, :topic_id, Topic.all, :id, :name, prompt: true, :required => true) %>*
 		</div>

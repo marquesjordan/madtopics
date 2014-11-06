@@ -4,19 +4,13 @@
 	<p><%= @question.enigma %></p>
 	<p>Created by: <%= @user.email %></p> 
 
-	
-	<% for answer in @question.answers %>
-		<%= button_to answer.description, { controller: "user_answers", action: "create", :user => current_user, :answer => answer} %>
+	Choose your answer:
+	<ol>
+		<% for answer in @question.answers %>
+			<li><%= link_to answer.description, user_answers_path(:answer_id => answer, :user_id => current_user), class: "btn btn-primary" %></li><br>
 
-		<%= link_to answer.description, user_answers_path(:answer_id => answer, :user_id => current_user) %>
-
-		
-	<% end %>
-	<%= form_for @user do |f| %>
-		<%= f.collection_radio_buttons(:answer_ids, @question.answers, :id, :description) %><br>
-		
-		<%= f.submit "Answer" %>
-	<% end %>
+		<% end %>
+	</ol>
 
 	<%= link_to "Edit", edit_question_path(@question) %>
 	<%= link_to "Delete", :question, method: :delete, data: {confirm: 'Are you sure you want to delete it?'} %><br/><br/>

@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
 	end
 	
 	def create
-		@answer = Answer.new(params.require(:answer).permit(:description))
+		@answer = Answer.new(params.require(:answer).permit(:description, :votes, :vote_ratio))
 		if @answer.save
 			# @answer = @question.answers.create(params.require(:answer).permit(:description))
 			redirect_to questions_path
