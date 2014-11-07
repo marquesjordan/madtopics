@@ -30,23 +30,26 @@ class QuestionsController < ApplicationController
 		# raise params.inspect
 		@user = current_user
 		
-		@question = Question.create(params.require(:question).permit(:enigma, :votes, :user_id ,:topic_id, :answers_attributes => [:description]))
-		@question.user_id = @user._id
-		if @question.topic_id == nil
+		if params[:topic_id] == ""
   			flash[:notice] = "You must select a topic catagory"
-			render 'new'
-		elsif @question.enigma == ""
+			redirect_to questions_path
+		elsif params[:enigma] == ""
 			flash[:notice] = "You must enter a question"
-			render 'new'
-		elsif @question.answers.count < 2
-			flash[:notice] = "You must have at least 2 answers"
-			render 'new'
-		elsif @question.save
+
+		else
+			@question = Question.create(params.require(:question).permit(:enigma, :votes, :user_id ,:topic_id, :answers_attributes => [:description]))
+			@question.user_id = @user._id
+			if @question.topic_id == nil
+				t_id = Topic.last.id
+				@question.topic_id = t_id
+			end
+			if @question.save
 			# @question.user_question.create(question_id: :id, user_id: :current_user)
 			# @answer = @question.answers.create(params.require(:answer).permit(:description))
-			redirect_to questions_path
-		else
-			render "new"
+				redirect_to questions_path
+			else
+				
+			end
 		end
 	end
 

@@ -8,6 +8,9 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="questionModalLabel">Create Your Question and Answers</h4>
+        <% if flash[:notice] %>
+            <div class="notice"><h2><%= flash[:notice] %></h2></div>
+        <% end %>
       </div>
       <div class="modal-body">
 

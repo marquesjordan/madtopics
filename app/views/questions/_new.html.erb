@@ -6,7 +6,7 @@
 	<%= nested_form_for @question do |f| %>
 
 		
-		<%= collection_select :question, :topic_id, Topic.all, :id, :name, {:prompt=>true}, {:class=>'form-control'} %>
+		<%= collection_select :question, :topic_id, Topic.all, :id, :name, {:prompt => true, :required=>true}, {:class=>'form-control'} %>
 		<br>
 		
 		<br>
