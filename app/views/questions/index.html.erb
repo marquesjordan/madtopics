@@ -13,13 +13,34 @@
 						<div class="panel panel-primary">
 				  			<div class="panel-heading">
 								<h2 class="panel-title">
-									<%= q.topic.name %>
+									<%= q.topic.name.upcase %>
 								</h2>
 							</div>
 							<div class="panel-body">
 								<p><%= q.enigma %></p>
 							</div>
 							<div class="panel-footer">
+
+									<% if UserAnswer.where(question_id: q.id , user_id: current_user.id ).exists? %>
+										<ol>
+											<% for answer in q.answers %>
+												<li><%= answer.description.upcase %> 
+													  	|| Votes: <%= answer.votes %> || 
+													  	<%= answer.vote_ratio %>% 
+												</li>
+											<% end %>
+										</ol
+									<% else %>
+										<ol>
+
+											<% for answer in q.answers %>
+												<li><%= link_to answer.description, user_answers_path(:answer_id => answer, :user_id => current_user), class: "btn btn-primary" %>
+												</li><br>
+											<% end %>
+
+										</ol>
+									<%end%>
+
 								<%= link_to "Answer Question", question_path(q) %>
 							</div>
 						</div>

@@ -4,10 +4,10 @@ class UserAnswersController < ApplicationController
   	@useranswer = UserAnswer.new
     @answer_id = params[:answer_id]
     @user_id = params[:user_id]
-    
-    UserAnswer.create(user_id: @user_id, answer_id: @answer_id )
     @answer = Answer.find(params[:answer_id])
     @question_id = @answer.question_id
+    
+    UserAnswer.create(user_id: @user_id, answer_id: @answer_id, question_id: @question_id )
     
     @question = Question.find(@question_id)
 
@@ -23,7 +23,7 @@ class UserAnswersController < ApplicationController
   end
 
   def create
-  	@useranswer = UserAnswer.new(params.require(:useranswer).permit(:user_id, :answer_id))
+  	@useranswer = UserAnswer.new(params.require(:useranswer).permit(:user_id, :answer_id, :question_id))
     
   end
 
