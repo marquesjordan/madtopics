@@ -1,3 +1,8 @@
+production:
+    sessions:
+      default:
+        uri: <%= ENV['MONGOHQ_URL'] %>
+
 development:
   # Configure available database sessions. (required)
   sessions:
@@ -14,10 +19,7 @@ development:
         # Change the default write concern. (default = { w: 1 })
         # write:
         # w: 1
-production:
-    sessions:
-      default:
-        uri: <%= ENV['MONGOHQ_URL'] %>
+
         # Change the default consistency model to primary, secondary.
         # 'secondary' will send reads to secondaries, 'primary' sends everything
         # to master. (default: primary)
