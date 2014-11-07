@@ -1,0 +1,28 @@
+
+	
+	
+	<% @question = Question.new %>
+	<% 2.times { @question.answers.build } %>
+	<%= nested_form_for @question do |f| %>
+
+		
+		<%= collection_select :question, :topic_id, Topic.all, :id, :name, {:prompt=>true}, {:class=>'form-control'} %>
+		<br>
+		
+		<br>
+		Question: <%= f.text_area :enigma, class: "form-control" %><br/><br/>
+		
+		<%= f.fields_for :answers do |builder| %>
+			<p>	
+				Answer: <%= builder.text_field :description, class: "form-control" %>
+				<%= builder.link_to_remove "Remove this answer" %><br/>
+			</p>
+		<% end %>
+		<p><%= f.link_to_add "Add a answer", :answers %></p><br>
+	<%= f.submit "Add Question" %>
+
+	<% end %>
+
+	
+	
+

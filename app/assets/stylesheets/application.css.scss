@@ -13,9 +13,32 @@
 	text-align: center;
 }
 
+.form-control {
+    max-width: 100%;
+} 
+// .sides{
+// 	background-image: url(sides.jpg);
+// }
+
+.myContainer{
+	
+}
+
+.jumbotron{
+	background-color: #BEBEBE;
+	
+}
+
+#mytitle{
+	color: white;
+	text-align: center;
+}
+
 body{
 	// background-image: url(world.jpeg);
 	background-color: #BEBEBE;
+	background-image: url(lightbg.jpg);
+	background-size: cover;
 	background-repeat: no-repeat;
 	padding-top: 70px; 
 }

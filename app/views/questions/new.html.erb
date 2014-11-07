@@ -1,7 +1,7 @@
 <div class="container">
 	<h1>Create New Question</h1>
 
-	<%= form_for @question do |f| %>
+	<%= nested_form_for @question do |f| %>
 
 		<div class="field">
 			<%= collection_select(:question, :topic_id, Topic.all, :id, :name, prompt: true, :required => true) %>*
@@ -12,10 +12,11 @@
 		
 		<%= f.fields_for :answers do |builder| %>
 			<p>	
-				Answer: <%= builder.text_field :description %><br/>
+				Answer: <%= builder.text_field :description %>
+				<%= builder.link_to_remove "Remove this answer" %><br/>
 			</p>
 		<% end %>
-		
+		<p><%= f.link_to_add "Add a answer", :answers %></p>
 	<%= f.submit "Add Question" %>
 
 	<% end %>

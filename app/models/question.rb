@@ -9,6 +9,6 @@ class Question
   belongs_to :topic
   belongs_to :user
   # embeds_many :answers
-  accepts_nested_attributes_for :answers
+  accepts_nested_attributes_for :answers, allow_destroy: true, :reject_if => proc { |att| att[:description].blank? }
   
 end

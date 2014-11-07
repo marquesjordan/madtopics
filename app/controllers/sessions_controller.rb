@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 		
 	# before_action :confirm_logged_in, :except => [:new, :create, :destroy]
-
+	skip_before_filter :authorize
 	def new
 		# Present an empty login form
 		@user = User.new

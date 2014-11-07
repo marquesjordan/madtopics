@@ -15,6 +15,10 @@ class QuestionsController < ApplicationController
 
 	end
 
+	def add_answer
+    	@question.answers.build
+  	end
+
 	def new
 		@question = Question.new
 		2.times { @question.answers.build }
@@ -32,6 +36,9 @@ class QuestionsController < ApplicationController
 			render 'new'
 		elsif @question.enigma == ""
 			flash[:notice] = "You must enter a question"
+			render 'new'
+		elsif @question.answers.count < 2
+			flash[:notice] = "You must have at least 2 answers"
 			render 'new'
 		elsif @question.save
 			# @question.user_question.create(question_id: :id, user_id: :current_user)

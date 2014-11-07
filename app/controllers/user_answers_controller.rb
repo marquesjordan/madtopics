@@ -4,6 +4,7 @@ class UserAnswersController < ApplicationController
   	@useranswer = UserAnswer.new
     @answer_id = params[:answer_id]
     @user_id = params[:user_id]
+    
     UserAnswer.create(user_id: @user_id, answer_id: @answer_id )
     @answer = Answer.find(params[:answer_id])
     @question_id = @answer.question_id
