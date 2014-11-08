@@ -9,23 +9,23 @@
 
 topics = Topic.create(
 		[ 
-			{name: 'relationships'},
-			{name: 'religion'},
-			{name: 'politics'},
-			{name: 'sex'},
-			{name: 'race'},
-			{name: 'homosexulaity'},
-			{name: 'life'},
-			{name: 'death'},
-			{name: 'school'},
-			{name: 'college'},
-			{name: 'women'},
-			{name: 'men'},
-			{name: 'marajuana'},
-			{name: 'liqour'},
-			{name: 'health'},
-			{name: 'technology'},
-			{name: 'travel'},
-			{name: 'food'}
+			{name: 'RELATIONSHIPS'},
+			{name: 'RELIGION'},
+			{name: 'POLITICS'},
+			{name: 'SEX'},
+			{name: 'RACE'},
+			{name: 'HOMOSEXUALITY'},
+			{name: 'LIFE'},
+			{name: 'DEATH'},
+			{name: 'SCHOOL'},
+			{name: 'COLLEGE'},
+			{name: 'WOMEN'},
+			{name: 'MEN'},
+			{name: 'MARIJUANA'},
+			{name: 'LIQOUR'},
+			{name: 'HEALTH'},
+			{name: 'TECHNOLOGY'},
+			{name: 'TRAVEL'},
+			{name: 'FOOD'}
 		]
 	)
