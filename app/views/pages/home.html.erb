@@ -5,10 +5,15 @@
 <div class="container">
 	<div class="jumbotron jumbo">
 		<div class="container">
-			<h1>MAD Topics</h1>
+			<h1>MadTopics</h1>
 			<p>Ask a Question - Set your Answers</p>
 			<p>See what you circle thinks</p>
-      <%= render 'layouts/logbtn' %>
+      
+			<% if current_user %>
+				<h2><%= link_to "See All The MadTopics", questions_path, class: "btn btn-default btn-lg"  %></h2>
+			<% else %>
+      			<%= render 'layouts/logbtn' %>
+      		<% end %>
       
 
 		</div>
