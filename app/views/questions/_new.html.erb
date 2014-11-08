@@ -19,9 +19,10 @@
 			</p>
 		<% end %>
 		
-		<p><%= f.link_to_add "Add a answer", :answers %></p><br>
+		<p><%= f.link_to_add "Add a answer +", :answers, class: "btn btn-primary btn-xs" %></p><br>
 
-	<%= f.submit "Add Question" %>
+
+	<%= f.submit "Submit Question", class: "btn btn-danger" %>
 
 	<% end %>
 

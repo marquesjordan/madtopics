@@ -28,29 +28,22 @@ class QuestionsController < ApplicationController
 
 	def create
 		# raise params.inspect
-		@user = current_user
 		
-		if params[:topic_id] == ""
-  			flash[:notice] = "You must select a topic catagory"
-			redirect_to questions_path
-		elsif params[:enigma] == ""
-			flash[:notice] = "You must enter a question"
-
-		else
+		@user = current_user
+		# raise params.inspect
+		# if params[:engima] == ""
+		# 	render 'new'
+		# else
 			@question = Question.create(params.require(:question).permit(:enigma, :votes, :user_id ,:topic_id, :answers_attributes => [:description]))
 			@question.user_id = @user._id
-			if @question.topic_id == nil
-				t_id = Topic.last.id
-				@question.topic_id = t_id
-			end
 			if @question.save
-			# @question.user_question.create(question_id: :id, user_id: :current_user)
-			# @answer = @question.answers.create(params.require(:answer).permit(:description))
 				redirect_to questions_path
 			else
-				
+				flash[:notice] = "Must Select A Topic & Ask a Question!"
+				render 'new'
 			end
-		end
+		# end
+	
 	end
 
 	def edit

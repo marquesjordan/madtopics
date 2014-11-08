@@ -9,6 +9,9 @@ class Question
   belongs_to :topic
   belongs_to :user
   has_many :user_answers
+
+  validates :topic, :presence => true
+  validates :enigma, presence: true
   # embeds_many :answers
   accepts_nested_attributes_for :answers, allow_destroy: true, :reject_if => proc { |att| att[:description].blank? }
   

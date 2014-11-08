@@ -1,25 +1,31 @@
 <div class="container">
+
+	<% if flash[:notice] %>
+	    <div class="notice"><h2><%= flash[:notice] %></h2></div>
+	<% end %>
 	<h1>Create New Question</h1>
 
 	<%= nested_form_for @question do |f| %>
 
 		<div class="field">
-			<%= collection_select(:question, :topic_id, Topic.all, :id, :name, prompt: true, :required => true) %>*
+			<%= collection_select(:question, :topic_id, Topic.all, :id, :name, {:prompt => true, :required=>true}, {:class=>'form-control'}) %>*
 		</div>
 		
 		<br>
-		Question: <%= f.text_area :enigma %><br/><br/>
+		Question: <%= f.text_area :enigma, class: "form-control" %><br/><br/>
 		
 		<%= f.fields_for :answers do |builder| %>
 			<p>	
-				Answer: <%= builder.text_field :description %>
+				Answer: <%= builder.text_field :description, class: "form-control" %>
 				<%= builder.link_to_remove "Remove this answer" %><br/>
 			</p>
 		<% end %>
-		<p><%= f.link_to_add "Add a answer", :answers %></p>
-	<%= f.submit "Add Question" %>
+		<p><%= f.link_to_add "Add a answer +", :answers, class: "btn btn-primary btn-xs" %></p><br>
+
+
+	<%= f.submit "Submit Question", class: "btn btn-danger" %>
 
 	<% end %>
-
+	<br>
 	<%= link_to "Back to Question List", questions_path %>
 </div>
