@@ -2,12 +2,16 @@
 <div class="container">
 	
 	<div class="row">
-		<div class="col-md-3 sides"></div>
-			<div class="col-md-6">
+		<div class="col-md-1 sides"></div>
+			<div class="col-md-10">
 				<div class="myContainer">
-					<h1 id="list_title">MAD Topics</h1>
+					<h1 id="list_title">
+						<%= link_to("#questionModal", class: "btn btn-default btn-lg", "data-toggle" => "modal" ) do %>
+							Add a MadTopic <i class="glyphicon glyphicon-plus"></i>
+						<%end%>
+					</h1>
 
-					<%= render 'layouts/listbtns' %> <br>
+					<%= render 'layouts/listbtns' %> <br><br>
 					
 					<% @questions.order("created_at desc").each do |q| %>
 						<div class="panel panel-primary">
@@ -17,25 +21,28 @@
 								</h2>
 							</div>
 							<div class="panel-body">
-								<p><%= q.enigma %></p>
+								<p class="lead center"><%= q.enigma %></p>
+								<p id="total">Total Votes: <%= q.votes %><p>
 							</div>
 							<div class="panel-footer">
 
 									<% if UserAnswer.where(question_id: q.id , user_id: current_user.id ).exists? %>
-										<ol>
+											<ol>
 											<% for answer in q.answers %>
-												<li><%= answer.description.upcase %> 
+												<% count = 1 %>
+												<p class="bg-primary"><li><%=answer.description.upcase %> 
 													  	|| Votes: <%= answer.votes %> || 
-													  	<%= answer.vote_ratio %>% 
-												</li>
+													  	<%= answer.vote_ratio %>%</li> 
+												</p>
+												
 											<% end %>
-										</ol
+											</ol>
 									<% else %>
 										<ol>
 
 											<% for answer in q.answers %>
-												<li><%= link_to answer.description, user_answers_path(:answer_id => answer, :user_id => current_user), class: "btn btn-primary" %>
-												</li><br>
+												<li><%= link_to answer.description, user_answers_path(:answer_id => answer, :user_id => current_user), class: "btn btn-info btn-block" %>
+												</li><br><br>
 											<% end %>
 
 										</ol>
@@ -49,7 +56,7 @@
 					<br/><br/>
 				</div>
 			</div>
-		<div class="col-md-3 sides"></div>
+		<div class="col-md-1 sides"></div>
 	</div>
 </div>
 
