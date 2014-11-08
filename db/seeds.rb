@@ -6,30 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 topics = Topic.create(
 		[ 
-			{name: 'Random Topic'}
+			{name: 'relationships'},
+			{name: 'religion'},
+			{name: 'politics'},
+			{name: 'sex'},
+			{name: 'race'},
+			{name: 'homosexulaity'},
+			{name: 'life'},
+			{name: 'death'},
+			{name: 'school'},
+			{name: 'college'},
+			{name: 'women'},
+			{name: 'men'},
+			{name: 'marajuana'},
+			{name: 'liqour'},
+			{name: 'health'},
+			{name: 'technology'},
+			{name: 'travel'},
+			{name: 'food'}
 		]
-)
-# topics = Topic.create(
-# 		[ 
-# 			{name: 'relationships'},
-# 			{name: 'religion'},
-# 			{name: 'politics'},
-# 			{name: 'sex'},
-# 			{name: 'race'},
-# 			{name: 'homosexulaity'},
-# 			{name: 'life'},
-# 			{name: 'death'},
-# 			{name: 'school'},
-# 			{name: 'college'},
-# 			{name: 'women'},
-# 			{name: 'men'},
-# 			{name: 'marajuana'},
-# 			{name: 'liqour'},
-# 			{name: 'health'},
-# 			{name: 'technology'},
-# 			{name: 'travel'},
-# 			{name: 'food'}
-# 		]
-# 	)
+	)
