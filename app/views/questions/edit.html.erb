@@ -1,10 +1,21 @@
-<h1>Edit This Question</h1>
+<div class="container">
+	<h1>Edit This Question</h1>
+	Topic: <%= @question.topic.name %><br/>
+	<%= nested_form_for @question do |f| %>
+		
+		Question: <%= f.text_area :enigma, class: "form-control" %><br/>
 
-<%= form_for @question do |f| %>
-	Topic: <%= f.text_field :topic %><br/>
-	Question: <%= f.text_area :enigma %><br/>
+		<%= f.fields_for :answers do |builder| %>
+			<p>	
+				Answer: <%= builder.text_field :description, class: "form-control", disabled: true %>
+				<br/>
+			</p>
+		<% end %>
+		<br>
 
-	<%= f.submit "Update Question" %>
-<% end %>
+		<%= f.submit "Update Question", class: "btn btn-danger" %>
 
-<%= link_to "Back to Question List", questions_path %>
+	<% end %>
+
+	<%= link_to "Back to Question List", questions_path %>
+</div>

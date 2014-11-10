@@ -55,7 +55,12 @@
 										</ol>
 									<%end%>
 
-								<%= link_to "See Stats", question_path(q) %>
+								<%= link_to "See Stats", '#' %>
+								<% if(q.user_id == current_user.id) %>
+									<span id="ed">
+									<%= link_to "Edit", edit_question_path(q) %>
+									<%= link_to "Delete", q, method: :delete, data: {confirm: 'Are you sure you want to delete it?'} %></span>
+								<% end %>
 							</div>
 						</div>
 					<% end %>
