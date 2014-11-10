@@ -9,7 +9,7 @@ class Answer
   accepts_nested_attributes_for :user_answers
   validates :description, length: {
     minimum: 2,
-    maximum: 100,
+    maximum: 50,
     too_short: "Is not a valid size" 
   }
   #embedded_in :question, :inverse_of => :answers

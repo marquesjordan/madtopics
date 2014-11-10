@@ -20,67 +20,7 @@ class QuestionsController < ApplicationController
 			@questions = Question.all	
 		end
 
-		# case my_question_filter
-		# when "SHOW ALL"
-		# 	@questions = Question.all
-		# when "RELATIONSHIPS"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "RELIGION"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "POLITICS"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "SEX"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "RACE"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "HOMOSEXUALITY"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "LIFE"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "DEATH"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "SCHOOL"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "COLLEGE"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "WOMEN"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "MEN"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "MARIJUANA"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "LIQOUR"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "HEALTH"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "TECHNOLOGY"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "TRAVEL"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# when "FOOD"
-		# 	topic = Topic.where(:name => my_question_filter)
-		#   	@questions = Question.where(:topic_id => topic.id)
-		# else 
-		# 	@questions = Question.all
-		# end
-
+		
 	end
 
 	def show
