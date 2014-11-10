@@ -37,7 +37,7 @@
 													<li>
 														<p class="lead"><%=answer.description.upcase %> 
 													  	||<span id="votes"> Votes: <%= answer.votes %></span> || 
-													  	<span id="ratio"><%= answer.vote_ratio %>%</span>
+													  	<span id="ratio"><%= answer.vote_ratio * 100 %>%</span>
 													  </p>
 													</li> 
 												</p>
