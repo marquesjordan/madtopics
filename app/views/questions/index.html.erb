@@ -33,11 +33,11 @@
 											<% for answer in q.answers %>
 												<% count = 1 %>
 												<p class="bg-primary">
-
+													<% answer.vote_ratio = answer.votes.to_f / q.votes.to_f %>
 													<li>
 														<p class="lead"><%=answer.description.upcase %> 
 													  	||<span id="votes"> Votes: <%= answer.votes %></span> || 
-													  	<span id="ratio"><%= (answer.votes / q.votes) * 100 %>%</span>
+													  	<span id="ratio"><%= (answer.vote_ratio * 100).to_i %>%</span>
 													  </p>
 													</li> 
 												</p>
