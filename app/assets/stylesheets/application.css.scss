@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+h1{
+	font-family: 'Trocchi', serif;
+}
+
 .jumbo{
 	text-align: center;
 }
@@ -11,6 +15,11 @@
 
 #list_title{
 	text-align: center;
+	position: fixed;
+}
+
+#filter{
+	position:fixed;
 }
 
 .form-control {
@@ -29,6 +38,10 @@
 	
 }
 
+#sin{
+	border: 1px solid black;
+}
+
 #mytitle{
 	color: white;
 	text-align: center;
@@ -36,10 +49,10 @@
 
 body{
 	// background-image: url(world.jpeg);
-	background-color: #BEBEBE;
-	background-image: url(lightbg.jpg);
+	background-color: #E9ECF1;
+	// background-image: url(lightbg.jpg);
 	background-size: cover;
-	background-repeat: no-repeat;
+	// background-repeat: no-repeat;
 	padding-top: 70px; 
 }
 

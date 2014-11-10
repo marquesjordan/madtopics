@@ -17,7 +17,7 @@
           <li class="menulink">
               <% if current_user %>
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <%= current_user.name %><span class="caret"></span>
+                    <%= current_user.name.upcase %><span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Profile</a></li>

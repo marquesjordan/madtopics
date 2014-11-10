@@ -1,28 +1,43 @@
-<div class="container">
-  <h1>LOG IN</h1>
-  <%= form_for(@user, {url: sessions_path}) do |f| %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <div class="row">
 
-        <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10">
+
+      <div class="container" id="sin">
+        <h1>Please Sign In</h1>
+        <p class="lead">Make sure all fields are correct</p>
+        <%= form_for(@user, {url: sessions_path}) do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :email %><br>
+            <%= f.text_field :email, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.label :password %><br>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+          <div class="actions">
+            <br>
+            <%= f.submit "Login", class: "btn btn-danger" %>
+            <br>
+          </div>
         <% end %>
-        </ul>
       </div>
-    <% end %>
 
-    <div class="field">
-      <%= f.label :email %><br>
-      <%= f.text_field :email %>
     </div>
-    <div class="field">
-      <%= f.label :password %><br>
-      <%= f.password_field :password %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Login" %>
-    </div>
-  <% end %>
-</div>
+    
+    <div class="col-md-1"></div>
+    
+  </div>

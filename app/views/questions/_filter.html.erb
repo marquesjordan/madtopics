@@ -1,0 +1,20 @@
+<div class="dropdown">
+  <button class="btn btn-default btn-lg" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Topic Filter
+   <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li role="presentation">
+		<%= link_to "SHOW ALL",questions_path(topicfilter:"showall") %>
+	<li>
+	<% @topics.each do |topic| %>
+		<li role="presentation">
+			  <%= link_to topic.name,questions_path(topicfilter: topic.name) %>
+		</li>
+	<% end %> 
+  </ul>
+</div>
+
+
+
+

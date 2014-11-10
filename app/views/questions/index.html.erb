@@ -2,15 +2,18 @@
 <div class="container">
 	
 	<div class="row">
-		<div class="col-md-1 sides"></div>
-			<div class="col-md-10">
-				<div class="myContainer">
-					<h1 id="list_title">
-						<%= link_to("#questionModal", class: "btn btn-default btn-lg", "data-toggle" => "modal" ) do %>
-							Add a MadTopic <i class="glyphicon glyphicon-plus"></i>
-						<%end%>
-					</h1>
 
+		<div class="col-md-2 sides">
+			<div class="container" id="filter">
+				<br>
+				<%= render 'filter' %>
+			</div>
+		</div>
+
+			<div class="col-md-8">
+				<div class="myContainer">
+					
+					
 					<%= render 'layouts/listbtns' %> <br><br>
 					
 					<% @questions.order("created_at desc").each do |q| %>
@@ -48,7 +51,7 @@
 										</ol>
 									<%end%>
 
-								<%= link_to "Answer Question", question_path(q) %>
+								<%= link_to "See Stats", question_path(q) %>
 							</div>
 						</div>
 					<% end %>
@@ -56,7 +59,13 @@
 					<br/><br/>
 				</div>
 			</div>
-		<div class="col-md-1 sides"></div>
+		<div class="col-md-2 sides">
+			<h1 id="list_title">
+					<%= link_to("#questionModal", class: "btn btn-default btn-lg", "data-toggle" => "modal" ) do %>
+						Add a MadTopic <i class="glyphicon glyphicon-plus"></i>
+					<%end%>
+			</h1>
+		</div>
 	</div>
 </div>
 
