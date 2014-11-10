@@ -9,7 +9,8 @@
 	<li>
 	<% @topics.each do |topic| %>
 		<li role="presentation">
-			  <%= link_to topic.name,questions_path(topicfilter: topic.name) %>
+			<% count = Question.where(:topic_id => topic.id).count %>  
+			<p><%= link_to topic.name,questions_path(topicfilter: topic.name) %> <span class="badge"><%= count %></span></p>
 		</li>
 	<% end %> 
   </ul>
